@@ -113,5 +113,62 @@ Se abre un archivo "requirements.txt" que contiene todo lo que necesito para mi 
 
     Puedo tambien agregar un nuevo bloque en base.html con un footer (legal disclaimer, o direccion, info, etc. de la empresa)
 
-16- Modelos de Django:
+16- Modelos de Django y Bases de Datos Relacionales:
+    Creamos dos modelos en la aplicacion Get Started con el archivo models.py
+    Creo las migraciones con "python manage.py makemigrations"
+    Esto genera el archivo "0001_initial.py" en la carpeta Get Started (en mi caso), y es un archivo que no hay que tocar.
+    Para que haga las modificaciones en la base de datos, hay que ejecutar "python manage.py migrate"
+    Esta accion crea las tablas en el archivo db.sqlite3 del proyecto y ahi vamos a poder ver la informacion.
+
+17- Administrador
+    En Get Started, abro archivo "admin.py" y registro alli mis modelos.
+    Importo los modelos y los registro como sigue:
+
+    from . import models
+
+    admin.site.register(models.Region)
+    admin.site.register(models.Country)
+    admin.site.register(models.User)
+
+    Creacion de superusuario con: python manage.py createsuperuser
+    ingresar nombre (admin), email (opcional) y password
+
+    En el servidor, puedo agregar paises, usuarios, regiones. Para verlos, voy a models.py
     
+    El archivo "modelos_tipos_de_datos" contiene informacion relevante para crear las clases.
+    Este archivo se puede previsualizar con CTRL+MAYUS+V
+
+18- Front-end: LOOK & FEEL 
+    Selecciono una plantilla de https://startbootstrap.com
+    La descargo y en Core -carpeta que contiene templates/core-, creo una carpeta "static" y dentro una core, y pego alli el archivo css, assets y js
+    index.html queda en templates/core, y es el archivo que utiliza los estilos de bootstrap (renombro el archivo index anterior como index2 para no "pisarlo")
+    el archivo favicon tiene que tener formato .ico. Para esto, puedo trabajar en paint y cambiar extension.
+    Si ejecuto el servidor, aparece la plantilla cargada pero sin formato>>> archivos estaticos (css, javascript, videos, imagenes), django los manipula como si fuera una url.
+
+19- Cargar estilos, fav icon, etc: para cargar, se usa en index descargado de Internet, la funcion load static.
+    Modificar los archivos estaticos css, js, etc. apagar y reiniciar el servidor, ya que estos archivos no se reinician automaticamente.
+
+20- Customizar contenido en archivo index.html (titulo, leyendas, clases, etc.)
+    
+21- Barra de navegacion navbar: para ir descomponiendo el index, creo un archivo navbar.html en core, y pego alli todo el contenido de navbar. Luego, uso el tag "include core/navbar.html" en index para "llamar al archivo navbar.
+
+22- Customizo secciones navegando por index (agrego imagenes descargandolas para que siempre esten disponibles, cambio contenido, etc.)
+
+23- En index, agrego bloques anteriores de base, y elimino ese archivo. Renombro el index a base.
+    Vuelvo a renombrar index2 a index para que funcionen los paths creados anteriormente.
+    Este paso no se si es necesario-preguntar si se puede eliminar y crear urls en el mismo template que bajamos de bootstrap.
+
+24- Para usar los links de bootstrap en nuestras aplicaciones, ir a navbar y renombrar segun nuestra web. El simbolo #! significa que el link no funciona. Puedo reemplazar por la url
+
+Creamos archivo about.html que extiende de core/base.html
+en urls agrego la url about y antes creo la funcion en views
+Luego inserto urls en cada funcion #Falta crear contacts y chequear que funcione bien la dinamica de la pagina.
+No me gusta el display
+
+25- Ver clientes directo desde html en el servidor - chequear, no anda!!!!
+
+26- en views de get_started: crear countries and regions
+NO ME FUNCIONA - PREGUNTAR QUE HICE MAL!!!!!
+Busqueda del minuto 1.52 de clase 28/11 no lo hice porque no funciona lo anterior
+
+Ver archivo filtros para esto
