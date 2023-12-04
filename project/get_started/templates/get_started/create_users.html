@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block contenido_titulo %}
+    Create users  
+{% endblock contenido_titulo %}
+
+{% block contenido %}
+    <form method="post">
+        {% csrf_token %}
+        {{form}}
+        <button type ="submit">Save</button>
+    </form>
+
+{% endblock contenido %}

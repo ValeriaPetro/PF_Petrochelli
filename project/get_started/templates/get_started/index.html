@@ -5,7 +5,8 @@
 {% endblock contenido_titulo%}
 
 {% block contenido %}
-    <ul>
-        <li><a href="{% url 'core:index' %}">Back to home</a></li>
-    </ul>    
+    {% for Users in User %}
+        <h2>user.last_name</h2>
+        <p>user.name</p>
+    {% endfor %}
 {% endblock contenido %}    
