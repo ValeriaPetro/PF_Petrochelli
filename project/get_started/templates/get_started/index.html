@@ -5,8 +5,13 @@
 {% endblock contenido_titulo%}
 
 {% block contenido %}
-    {% for Users in User %}
-        <h2>user.last_name</h2>
-        <p>user.name</p>
+    {% for user in users %}
+        
+        <h2>{{ User.last_name }}</h2>
+        <p>{{ User.name }}</p>
+        <p>{{ User.company }}</p>
+        <p>{{ User.country_of_benchmark }}</p>
+        <p>{{ User.region_of_benchmark }}</p>
+
     {% endfor %}
 {% endblock contenido %}    

@@ -3,12 +3,16 @@ from django.shortcuts import render, redirect
 from . import models
 from datetime import date
 
+# funcion anterior - lo "nuevo" es para crear usuarios desde la aplicacion get_started
+# def home(request):
+#     return render(request, "get_started/index.html")
+
 def home(request):
-    User = models.User.objects.all()
-    context = {"Users": User}
+    users = models.User.objects.all()
+    context = {"users": users}
     return render(request, "get_started/index.html", context)
 
-def create_users_misc(request):
+def create_users_manually(request):
     p1 = models.Country(name="United States")
     p2 = models.Country(name="United Kingdom")
     p3 = models.Country(name="Poland")
@@ -27,13 +31,17 @@ def create_users_misc(request):
 
 from . import forms
 
+def home(request):
+    users = User
+    return render(request, "get_started/index.html")
+
 def create_users(request):
     if request.method == "POST":
         form = forms.UserForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("get_started:index")
+            return redirect("get_started:index.html")
         
     else: 
-        form = forms.UserForm
+        form = forms.UserForm()
     return render(request, "get_started/create_users.html", {"form": form})
