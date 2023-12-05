@@ -1,14 +1,36 @@
 {% extends 'core/base.html' %}
 
-{% block contenido_titulo %}
-    Create users  
-{% endblock contenido_titulo %}
+{% block contenido_user %}
+    Create your user and send us your request!
+{% endblock contenido_user %}
 
-{% block contenido %}
+{% block contenido_form %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form</title>
+    <style>
+        /* Estilos para alinear los campos del formulario */
+        form > div {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+
+        form > div > label {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
     <form method="post">
         {% csrf_token %}
-        {{form}}
-        <button type ="submit">Save</button>
+        <div>
+            {{ form.as_p }}
+        </div>
+        <button type="submit">Save</button>
     </form>
-
-{% endblock contenido %}
+</body>
+</html>
+       
+{% endblock contenido_form %}

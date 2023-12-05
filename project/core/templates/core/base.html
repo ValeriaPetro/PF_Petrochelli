@@ -27,8 +27,8 @@
         {% endblock contenido_titulo %}
 
         {% block contenido %}
-        {% endblock contenido %} 
-            
+        {% endblock contenido %}  
+
                 <!-- About-->
         <section class="about-section text-center" id="About">
             <div class="container px-4 px-lg-5">
@@ -47,17 +47,25 @@
             <div class="container px-4 px-lg-5">
                 <!-- Featured Project Row-->
                 <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="{% static 'core/assets/img/lets-get-started.jpg'%}" alt="..." /></div>
+                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="{% static 'core/assets/img/lets-get-started.jpg'%}"  style="width: 650px; height: 400px;"/></div>
                     <div class="col-xl-4 col-lg-5">
                         <div class="featured-text text-center text-lg-left">
                             <h4>Let's get started!</h4>
                             <p class="text-black-50 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel egestas dolor, nec dignissim metus.</p>
+                        
+                            {% block contenido_user %}
+                            {% endblock contenido_user %}
+                    
+                            {% block contenido_form %}
+                            {% endblock contenido_form %}
+
+
                         </div>
                     </div>
                 </div>
                 <!-- Project One Row-->
                 <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="{% static 'core/assets/img/faqs.jpg'%}" alt="..." /></div>
+                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="{% static 'core/assets/img/faqs.jpg' %}" style="width: 650px; height: 200px;"> /></div>
                     <div class="col-xl-4 col-lg-5">
                         <div class="featured-text text-center text-lg-left">
                             <h4>FAQs</h4>

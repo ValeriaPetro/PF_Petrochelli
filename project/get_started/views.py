@@ -28,12 +28,24 @@ def create_users_manually(request):
     u3.save()
     return redirect("get_started:index")
 
+def search(request):
+    # búsqueda por empresa que contenga "Batman"
+    company = models.User.objects.filter(company_contains="Batman")
+
+    # búsqueda por pais de benchmark que sea igual a "United States"
+    country_of_benchmark = models.User.objects.filter(country_of_benchmark="United States")
+
+    context = {
+        "company": company,
+        "country_of_benchmarl": country_of_benchmark,
+    }
+    return render(request, "get_started/search.html", context)
 
 from . import forms
 
-def home(request):
-    users = User
-    return render(request, "get_started/index.html")
+# def home(request):
+#     users = models.User
+#     return render(request, "get_started/index.html")
 
 def create_users(request):
     if request.method == "POST":
