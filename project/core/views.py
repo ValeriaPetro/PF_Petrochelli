@@ -15,6 +15,7 @@ def contact(request):
 def faqs(request):
     return render(request, "faqs/index.html")
 
+
 def users(request):
     all_users = []
     for user in User.objects.all():
