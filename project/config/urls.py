@@ -24,4 +24,4 @@ urlpatterns = [
     path('faqs/', include('faqs.urls')),
     path('get_started/', include('get_started.urls')),
     path('contact/', include('contact.urls')),
-]
+    ]

@@ -26,14 +26,14 @@ def create_users_manually(request):
     u1.save()
     u2.save()
     u3.save()
-    return redirect("get_started:index")
+    return redirect("core/index.html")
 
 def search(request):
     # búsqueda por empresa que contenga "Batman"
-    company = models.User.objects.filter(company_contains="Batman")
+    company = models.User.objects.filter(company="Batman")
 
-    # búsqueda por pais de benchmark que sea igual a "United States"
-    country_of_benchmark = models.User.objects.filter(country_of_benchmark="United States")
+    # búsqueda por pais de benchmark que sea igual a "China"
+    country_of_benchmark = models.User.objects.filter(country_of_benchmark=1)
 
     context = {
         "company": company,
