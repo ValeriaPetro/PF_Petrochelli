@@ -18,7 +18,7 @@ def faqs(request):
 
 def users(request):
     all_users = []
-    for user in User.objects.all():
+    for user in user.objects.all():
         all_users.append(user)
         
     context = {"users": all_users}
